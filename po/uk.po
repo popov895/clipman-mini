@@ -1,0 +1,86 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-01-14 18:59+0200\n"
+"PO-Revision-Date: 2024-01-14 19:03+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
+"X-Generator: Poedit 3.0.1\n"
+
+#: extension.js:196
+msgid "Type to search..."
+msgstr "Введіть для пошуку..."
+
+#: extension.js:217
+msgid "No Matches"
+msgstr "Немає збігів"
+
+#: extension.js:384
+msgid "History is Empty"
+msgstr "Історія порожня"
+
+#: extension.js:390
+msgid "Private Mode is On"
+msgstr "Приватний режим увімкнено"
+
+#: extension.js:412
+msgid "Clear History"
+msgstr "Очистити історію"
+
+#: extension.js:417
+msgid "Private Mode"
+msgstr "Приватний режим"
+
+#: extension.js:437
+msgctxt "Open settings"
+msgid "Settings"
+msgstr "Налаштування"
+
+#: prefs.js:21
+msgid "Press Backspace to clear shortcut or Esc to cancel"
+msgstr "Натисніть Backspace, щоб очистити поєднання клавіш, або Esc, щоб скасувати"
+
+#: prefs.js:22
+msgid "Enter a new shortcut"
+msgstr "Введіть нове поєднання клавіш"
+
+#: prefs.js:70
+msgctxt "Keyboard shortcut is disabled"
+msgid "Disabled"
+msgstr "Вимкнено"
+
+#: prefs.js:122
+msgid "History size"
+msgstr "Розмір історії"
+
+#: prefs.js:127
+msgctxt "General options"
+msgid "General"
+msgstr "Загальне"
+
+#: prefs.js:132
+msgid "Keyboard Shortcuts"
+msgstr "Поєднання клавіш"
+
+#: prefs.js:135
+msgid "Toggle menu"
+msgstr "Переключити меню"
+
+#: prefs.js:140
+msgid "Toggle private mode"
+msgstr "Переключити приватний режим"
+
+#: prefs.js:145
+msgid "Clear history"
+msgstr "Очистити історію"
