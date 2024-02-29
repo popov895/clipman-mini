@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-14 18:59+0200\n"
+"POT-Creation-Date: 2024-02-29 11:23+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,44 +17,15 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: extension.js:196
-msgid "Type to search..."
-msgstr ""
-
-#: extension.js:217
-msgid "No Matches"
-msgstr ""
-
-#: extension.js:384
-msgid "History is Empty"
-msgstr ""
-
-#: extension.js:390
-msgid "Private Mode is On"
-msgstr ""
-
-#: extension.js:412
-msgid "Clear History"
-msgstr ""
-
-#: extension.js:417
-msgid "Private Mode"
-msgstr ""
-
-#: extension.js:437
-msgctxt "Open settings"
-msgid "Settings"
-msgstr ""
-
-#: prefs.js:21
+#: prefs.js:24
 msgid "Press Backspace to clear shortcut or Esc to cancel"
 msgstr ""
 
-#: prefs.js:22
+#: prefs.js:25
 msgid "Enter a new shortcut"
 msgstr ""
 
-#: prefs.js:70
+#: prefs.js:73
 msgctxt "Keyboard shortcut is disabled"
 msgid "Disabled"
 msgstr ""
@@ -82,4 +53,33 @@ msgstr ""
 
 #: prefs.js:145
 msgid "Clear history"
+msgstr ""
+
+#: extension.js:203
+msgid "Type to search..."
+msgstr ""
+
+#: extension.js:224
+msgid "No Matches"
+msgstr ""
+
+#: extension.js:393
+msgid "History is Empty"
+msgstr ""
+
+#: extension.js:399
+msgid "Private Mode is On"
+msgstr ""
+
+#: extension.js:421
+msgid "Clear History"
+msgstr ""
+
+#: extension.js:426
+msgid "Private Mode"
+msgstr ""
+
+#: extension.js:446
+msgctxt "Open settings"
+msgid "Settings"
 msgstr ""
