@@ -4,7 +4,7 @@
     "description": "A minimalist clipboard manager",
     "url": "https://github.com/popov895/clipman-mini",
     "version": 1,
-    "shell-version": ["42", "43", "44"],
+    "shell-version": ["45"],
     "settings-schema": "org.gnome.shell.extensions.clipman-mini",
     "donations": {
         "buymeacoffee": "popov895a"

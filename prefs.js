@@ -1,11 +1,14 @@
 'use strict';
 
-const { Adw, Gdk, GObject, Gtk } = imports.gi;
+import Adw from 'gi://Adw';
+import Gdk from 'gi://Gdk';
+import GObject from 'gi://GObject';
+import Gtk from 'gi://Gtk';
 
-const ExtensionUtils = imports.misc.extensionUtils;
-const Extension = ExtensionUtils.getCurrentExtension();
-const { Preferences } = Extension.imports.lib.preferences;
-const { _ } = Extension.imports.lib.utils;
+import { ExtensionPreferences } from 'resource:///org/gnome/Shell/Extensions/js/extensions/prefs.js';
+
+import { Preferences } from './lib/preferences.js';
+import { _ } from './lib/utils.js';
 
 const ShortcutWindow = GObject.registerClass(
 class ShortcutWindow extends Adw.Window {
@@ -92,64 +95,62 @@ class ShortcutRow extends Adw.ActionRow {
     }
 });
 
-var init = () => {
-    ExtensionUtils.initTranslations(Extension.uuid);
-};
+export default class extends ExtensionPreferences {
+    fillPreferencesWindow(window) {
+        window._preferences = new Preferences(this);
+        window.connect(`close-request`, () => {
+            window._preferences.destroy();
+        });
 
-var fillPreferencesWindow = (window) => {
-    window._preferences = new Preferences();
-    window.connect(`close-request`, () => {
-        window._preferences.destroy();
-    });
+        const historySizeSpinBox = new Gtk.SpinButton({
+            adjustment: new Gtk.Adjustment({
+                lower: 1,
+                upper: 500,
+                step_increment: 1,
+            }),
+            valign: Gtk.Align.CENTER,
+        });
+        window._preferences.bind_property(
+            `historySize`,
+            historySizeSpinBox,
+            `value`,
+            GObject.BindingFlags.BIDIRECTIONAL | GObject.BindingFlags.SYNC_CREATE
+        );
 
-    const historySizeSpinBox = new Gtk.SpinButton({
-        adjustment: new Gtk.Adjustment({
-            lower: 1,
-            upper: 500,
-            step_increment: 1,
-        }),
-        valign: Gtk.Align.CENTER,
-    });
-    window._preferences.bind_property(
-        `historySize`,
-        historySizeSpinBox,
-        `value`,
-        GObject.BindingFlags.BIDIRECTIONAL | GObject.BindingFlags.SYNC_CREATE
-    );
+        const historySizeRow = new Adw.ActionRow({
+            activatable_widget: historySizeSpinBox,
+            title: _(`History size`),
+        });
+        historySizeRow.add_suffix(historySizeSpinBox);
 
-    const historySizeRow = new Adw.ActionRow({
-        activatable_widget: historySizeSpinBox,
-        title: _(`History size`),
-    });
-    historySizeRow.add_suffix(historySizeSpinBox);
+        const generalGroup = new Adw.PreferencesGroup({
+            title: _(`General`, `General options`),
+        });
+        generalGroup.add(historySizeRow);
 
-    const generalGroup = new Adw.PreferencesGroup({
-        title: _(`General`, `General options`),
-    });
-    generalGroup.add(historySizeRow);
+        const keybindingGroup = new Adw.PreferencesGroup({
+            title: _(`Keyboard Shortcuts`),
+        });
+        keybindingGroup.add(new ShortcutRow(
+            _(`Toggle menu`),
+            window._preferences,
+            `toggleMenuShortcut`
+        ));
+        keybindingGroup.add(new ShortcutRow(
+            _(`Toggle private mode`),
+            window._preferences,
+            `togglePrivateModeShortcut`
+        ));
+        keybindingGroup.add(new ShortcutRow(
+            _(`Clear history`),
+            window._preferences,
+            `clearHistoryShortcut`
+        ));
 
-    const keybindingGroup = new Adw.PreferencesGroup({
-        title: _(`Keyboard Shortcuts`),
-    });
-    keybindingGroup.add(new ShortcutRow(
-        _(`Toggle menu`),
-        window._preferences,
-        `toggleMenuShortcut`
-    ));
-    keybindingGroup.add(new ShortcutRow(
-        _(`Toggle private mode`),
-        window._preferences,
-        `togglePrivateModeShortcut`
-    ));
-    keybindingGroup.add(new ShortcutRow(
-        _(`Clear history`),
-        window._preferences,
-        `clearHistoryShortcut`
-    ));
+        const page = new Adw.PreferencesPage();
+        page.add(generalGroup);
+        page.add(keybindingGroup);
 
-    const page = new Adw.PreferencesPage();
-    page.add(generalGroup);
-    page.add(keybindingGroup);
-
-    window.add(page);
-};
+        window.add(page);
+    }
+}
